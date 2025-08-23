@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - HealthAlert</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-red-50 to-white min-h-screen flex items-center justify-center p-6">
+    <div class="max-w-2xl w-full">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-red-100">
+            <div class="p-8 md:p-12">
+                <div class="text-center mb-8">
+                    <div class="mb-6">
+                        <div class="inline-flex items-center justify-center w-24 h-24 bg-red-100 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h1 class="text-6xl font-bold text-red-600 mb-2">404</h1>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Page Not Found</h2>
+                    <p class="text-lg text-gray-600 max-w-md mx-auto">
+                        It looks like the page you're searching for isn't available right now.
+                        Don't worry — our system is still keeping an eye on public health alerts.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
+                    <a href="#" class="bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 text-center">
+                        Go to Home
+                    </a>
+                    <a href="#" class="bg-white hover:bg-red-50 text-red-600 font-medium py-3 px-4 rounded-lg border border-red-200 transition-colors duration-200 text-center">
+                        Contact us
+                    </a>
+                    <a href="#" class="bg-white hover:bg-gray-100 text-gray-700 font-medium py-3 px-4 rounded-lg border border-gray-200 transition-colors duration-200 text-center">
+                        Need help
+                    </a>
+                </div>
+
+                <div class="mt-10 text-center">
+                    <p class="text-gray-500 text-sm">
+                        In the meantime, you can check our <a href="#" class="text-red-600 hover:underline">health alert dashboard</a> 
+                        for the latest updates.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="bg-red-50 py-4 px-6 text-center">
+                <p class="text-sm text-gray-600">
+                    &copy; 2023 HealthAlert - Global Disease Surveillance System
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-8 text-center animate-pulse-slow">
+            <p class="text-red-300 text-sm">
+                Error Code: 404 | Resource Not Found
+            </p>
+        </div>
+    </div>
+</body>
+</html>
