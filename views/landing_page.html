@@ -4,284 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Disease Surveillance</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary': {
-                            50: '#FEF2F2',
-                            100: '#FEE2E2',
-                            500: '#EF4444',
-                            600: '#DC2626',
-                            700: '#B91C1C',
-                            800: '#991B1B',
-                        }
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-out forwards',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #DC2626;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <link href="./output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-white text-gray-800 antialiased">
-    <!-- Navigation -->
-    <nav class="bg-white border-b border-gray-200 px-6 py-4 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div class="w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center">
-                    <span class="text-white font-bold">H</span>
-                </div>
-                <span class="text-xl font-bold">HealthAlert</span>
-            </div>
-            
-            <div class="hidden md:flex space-x-8">
-                <a href="#" class="nav-link">Solutions</a>
-                <a href="#" class="nav-link">How It Works</a>
-                <a href="#" class="nav-link">Pricing</a>
-                <a href="#" class="nav-link">About</a>
-            </div>
-            
-            <div class="flex items-center space-x-4">
-                <a href="#" class="text-primary-600 font-medium">Log in</a>
-                <a href="#" class="bg-primary-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-primary-700 transition">Sign Up</a>
-            </div>
+<body class="mt-4">
+    <!-- nav bar -->
+     <nav class="bg-white p-1 sticky top-0 z-50 ">
+     <div class="grid sm:grid-cols-[2fr_26fr_15fr_10fr_20fr_25fr_10fr] sm:grid-rows-1 sm:gap-2 ml-10 mr-10">
+        <div class="w-10 h-10 bg-primary-600 rounded-full flex items-center mt-0.5 bg-red-500 justify-center">
+            <span class="text-white font-bold">H</span>
         </div>
-    </nav>
+        <p class="text-red-500 text-[30px] font-bold font-['ubuntu'] text-left bg-">HealthAlert</p>
+        <a href="" class=" text-center text-[20px] font-medium font-['roboto'] p-4">Home</a>
+        <a href="/user-dashboard" class=" text-center text-[20px] font-['roboto'] font-medium p-4">Dashboard</a>
+        <a href="/how-itworks" class="text-center text-[20px] font-['roboto'] font-medium p-4">How it Works</a>
+        <a href="/about" class=" text-left text-[20px] font-['roboto'] font-medium p-4">About</a>
+        <a href="user-login" class="bg-red-500 text-white flex items-center justify-center h-[50px] rounded-[10px] font-['roboto'] hover:bg-red-400">Sign In</a>
+     </div>
+     </nav>
 
-    <!-- Hero Section -->
-    <section class="px-6 py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                Global Open-Source <span class="text-primary-600">Disease Surveillance</span> via SMS & Alerts
-            </h1>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-                An open-source, SMS-powered disease surveillance platform to track outbreaks in real time and alert authorities before they spread.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#" class="bg-primary-600 text-white px-8 py-4 rounded-lg font-medium text-lg hover:bg-primary-700 transition shadow-md">
-                    Get Started
-                </a>
-                <a href="#" class="border border-gray-300 bg-white px-8 py-4 rounded-lg font-medium text-lg hover:bg-gray-50 transition">
-                    Learn More
-                </a>
-            </div>
-        </div>
-    </section>
+     <!-- hero section -->
+    <div class="mt-3">
+      <div class="relative bg-no-repeat bg-cover bg-right h-96 w-full bg-[url(https://img.freepik.com/premium-photo/abstract-healthcare-background-with-hexagons-watercolor_813661-10363.jpg)]">
+      <!-- <div class="relative bg-no-repeat bg-cover bg-right h-96 w-full bg-[url('./img.html')]"> -->
 
-    <!-- Stats Section -->
-    <section class="bg-primary-50 py-16 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl text-center card-hover">
-                    <div class="text-4xl font-bold text-primary-600 mb-2">24-48h</div>
-                    <p class="text-gray-600">Faster outbreak detection</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl text-center card-hover">
-                    <div class="text-4xl font-bold text-primary-600 mb-2">85%</div>
-                    <p class="text-gray-600">Cost reduction compared to traditional systems</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl text-center card-hover">
-                    <div class="text-4xl font-bold text-primary-600 mb-2">64</div>
-                    <p class="text-gray-600">Countries using our platform</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- White gradient overlay -->
+        <div class="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/30 to-transparent"></div>
+        <!-- Bottom white gradient overlay -->
+        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
+ 
+        <!-- content -->
+        <div class="hidden sm:block text-black sm:ml-16 sm:mt-24 absolute sm:p-8">
 
-    <!-- How It Works -->
-    <section class="py-16 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-4">How It Works</h2>
-            <p class="text-gray-600 text-center max-w-3xl mx-auto mb-12">Our simple process helps detect outbreaks faster and save lives</p>
+          <p class="font-['Libertinus'] ml-12 text-6xl w-3xl text-red-600">Global Open-Source Disease Surveillance</p>
+
+          <p class="hidden sm:block sm:ml-12 sm:text-1xl mt-5 text-gray-600 w-[600px]">Open-source SMS platform for real-time outbreak alerts.</p>
+          <a href="user-register" class="bg-white w-36 inline-block text-center text-red-500 py-3 hover:bg-gray-300 shadow-2xl ml-12 mt-4">Register</a>
+          <a href="learn-more" class="bg-red-500 w-56 inline-block text-center text-white py-3 hover:bg-red-400 shadow-2xl">Learn More</a>
             
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-primary-600 font-bold text-xl">1</span>
-                    </div>
-                    <h3 class="font-medium mb-2">Health workers report symptoms via SMS</h3>
-                    <p class="text-gray-600 text-sm">No internet required, works on any mobile phone</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-primary-600 font-bold text-xl">2</span>
-                    </div>
-                    <h3 class="font-medium mb-2">Data is analyzed in real-time</h3>
-                    <p class="text-gray-600 text-sm">Our algorithms detect unusual patterns</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-primary-600 font-bold text-xl">3</span>
-                    </div>
-                    <h3 class="font-medium mb-2">Alerts are sent to authorities</h3>
-                    <p class="text-gray-600 text-sm">Instant notifications via multiple channels</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-primary-600 font-bold text-xl">4</span>
-                    </div>
-                    <h3 class="font-medium mb-2">Rapid response saves lives</h3>
-                    <p class="text-gray-600 text-sm">Early intervention prevents outbreaks</p>
-                </div>
-            </div>
         </div>
-    </section>
+      </div>
+    </div>
+    
+    <!-- stats section -->
+    <div class="grid grid-cols-3 grid-rows-1 gap-16 h-36 mt-20 ml-26 mr-26">
+        <div class=" flex flex-col p-4 items-center justify-center text-center border-red-500 border-1 rounded-[5px]">
+            <p class="text-red-500 font-bold text-[40px]">24-48h</p>
+            <p class="text-gray-900 ">Faster outbreak detection</p>
+        </div>
+        <div class=" flex flex-col p-4 items-center justify-center text-center border-red-500 border-1 rounded-[5px]">
+            <p class="text-red-500 font-bold text-[40px]">85%</p>
+            <p class="text-gray-900">Cost reduction compared to traditional systems</p>
+        </div>
+        <div class=" flex flex-col p-4 items-center justify-center text-center border-red-500 border-1 rounded-[5px]">
+            <p class="text-red-500 font-bold text-[40px]">100+</p>
+            <p class="text-gray-900">Actively working locations</p>
+        </div>
+    </div>
 
     <!-- Features -->
     <section class="py-16 px-6 bg-primary-50">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl font-bold text-center mb-4">Why Choose Our Platform</h2>
-            <p class="text-gray-600 text-center max-w-3xl mx-auto mb-12">Designed for health workers in low-resource settings</p>
+            <p class="text-gray-600 text-center max-w-3xl font-['roboto'] mx-auto mb-12">Designed for the society</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-xl card-hover">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+                <div class="bg-white p-8 rounded-xl card-hover border-1 border-red-500">
                     <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                         </svg>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">SMS-Based Reporting</h3>
+                    <h3 class="font-bold text-2xl mb-2 text-red-500">SMS-Based Reporting</h3>
                     <p class="text-gray-600">Works on any mobile phone without internet access. Simple codes for quick symptom reporting.</p>
                 </div>
                 
-                <div class="bg-white p-8 rounded-xl card-hover">
+                <div class="bg-white p-8 rounded-xl card-hover border-1 border-red-500">
                     <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Real-Time Alerts</h3>
+                    <h3 class="font-bold text-2xl text-red-500 mb-2">Real-Time Alerts</h3>
                     <p class="text-gray-600">Instant notifications to health authorities when potential outbreaks are detected.</p>
                 </div>
                 
-                <div class="bg-white p-8 rounded-xl card-hover">
+                <div class="bg-white p-8 rounded-xl card-hover border-1 border-red-500">
                     <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                         </svg>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Open Source</h3>
+                    <h3 class="font-bold text-red-500 text-2xl mb-2">Open Source</h3>
                     <p class="text-gray-600">Transparent, customizable, and free to use. Community-driven improvements.</p>
                 </div>
                 
-                <div class="bg-white p-8 rounded-xl card-hover">
+                <div class="bg-white p-8 rounded-xl card-hover border-1 border-red-500">
                     <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600  " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Community Focused</h3>
+                    <h3 class="font-bold text-red-500 text-2xl mb-2">Community Focused</h3>
                     <p class="text-gray-600">Designed with and for local health workers. Training and support included.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-16 px-6 bg-primary-600">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-white mb-6">Ready to improve disease surveillance?</h2>
-            <p class="text-primary-100 max-w-2xl mx-auto mb-8">Join hundreds of health organizations using our platform to detect outbreaks faster and save lives.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#" class="bg-white text-primary-600 px-8 py-4 rounded-lg font-medium text-lg hover:bg-gray-100 transition">
-                    Get Started for Free
-                </a>
-                <a href="#" class="bg-transparent border border-white text-white px-8 py-4 rounded-lg font-medium text-lg hover:bg-white/10 transition">
-                    Contact Sales
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- hospital sections -->
+    <div class="flex items-center justify-center text-center flex-col bg-red-700 w-full p-10">
+        <p class="text-3xl font-bold text-white mt-8">Ready to improve disease surveillance?</p>
+        <p class="text-gray-100 mt-6">Join hundreds of health organizations using our platform to detect outbreaks faster and save lives.</p>
+        <a href="hospital-register" class="bg-white py-4 px-8 rounded-[5px] mt-10 mb-2 text-red-600 text-[18px]  font-bold">Register for hospitals</a>
+        <a href="hospital-login" class="bg-white py-4 px-8 rounded-[5px] mt-2 mb-4 text-red-600 text-[18px]  font-bold">Login for hospitals</a>
+    </div>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 py-12 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-                <div class="flex items-center space-x-2 mb-4">
-                    <div class="w-8 h-8 bg-primary-600 rounded-full flex items-center justify-center">
-                        <span class="text-white font-bold text-sm">H</span>
-                    </div>
-                    <span class="font-bold">HealthAlert</span>
-                </div>
-                <p class="text-gray-600 text-sm">Making disease surveillance accessible to everyone, everywhere.</p>
-            </div>
-            
-            <div>
-                <h3 class="font-medium mb-4">Product</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-600 hover:text-primary-600 text-sm">Features</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-primary-600 text-sm">Pricing</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-primary-600 text-sm">Case Studies</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-primary-600 text-sm">API</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h3 class="font-medium mb-4">Resources</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-600 hover:text-primary-600 text-sm">Documentation</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-primary-600 text-sm">Blog</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-primary-600 text-sm">Community</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-primary-600 text-sm">Support</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h3 class="font-medium mb-4">Company</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-600 hover:text-primary-600 text-sm">About</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-primary-600 text-sm">Careers</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-primary-600 text-sm">Contact</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-primary-600 text-sm">Partners</a></li>
-                </ul>
-            </div>
+    <!-- footer -->
+    <div class="flex items-center justify-center mb-12 space-x-3 mt-8 ">
+    <!-- Logo Circle -->
+        <div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center">
+        <span class="text-white font-bold">H</span>
+    </div>
+    
+    <!-- Title + Tagline -->
+    <div class="flex flex-col">
+        <p class="font-bold text-[30px] text-red-700 font-['ubuntu']">HealthAlert</p>
+        <p class="text-gray-600">Making disease surveillance accessible to everyone, everywhere</p>
         </div>
-        
-        <div class="max-w-7xl mx-auto border-t border-gray-200 mt-8 pt-8 text-center">
-            <p class="text-gray-500 text-sm">© 2023 HealthAlert. All rights reserved.</p>
-        </div>
-    </footer>
+    </div>
+
+
 </body>
 </html>

@@ -1,0 +1,19 @@
+{
+  "name": "epidemiological-watch.",
+  "version": "1.0.0",
+  "description": "disease survillance via SMS and alert ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "epi-watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.12",
+    "tailwindcss": "^4.1.12"
+  }
+}
