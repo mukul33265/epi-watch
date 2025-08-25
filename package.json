@@ -4,8 +4,11 @@
   "description": "disease survillance via SMS and alert ",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "start:server": "node app.js",
+  "build:css": "tailwindcss -i ./views/input.css -o ./views/output.css --watch",
+  "dev": "start cmd /k \"npx tailwindcss -i ./views/input.css -o ./views/output.css --watch\" && nodemon app.js"
+}
+,
   "repository": {
     "type": "git",
     "url": "epi-watch"
@@ -14,6 +17,10 @@
   "license": "ISC",
   "dependencies": {
     "@tailwindcss/cli": "^4.1.12",
+    "express": "^5.1.0",
     "tailwindcss": "^4.1.12"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
