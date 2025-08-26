@@ -6,14 +6,6 @@ userRouter.get('',usercontroller.home);
 
 userRouter.get('/home',usercontroller.home);
 
-userRouter.get('/user-login',usercontroller.userlogin);
-
-userRouter.get('/user-register',usercontroller.usersignup);
-
-userRouter.get('/hospital-login',usercontroller.addsoon);
-
-userRouter.get('/hospital-register',usercontroller.addsoon);
-
 userRouter.get('/about',usercontroller.addsoon);
 
 userRouter.get('/terms',usercontroller.addsoon);
