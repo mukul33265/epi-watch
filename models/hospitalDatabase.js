@@ -1,6 +1,6 @@
 const db = require('../utils/dataBaseUtils') ;
 
-module.export =  class hospitalData {
+module.exports =  class hospitalData {
     constructor(email,password,phone_no,name,location,){
         this.email = email ;
         this.password = password ;
@@ -9,5 +9,7 @@ module.export =  class hospitalData {
         this.location = location ;
     }
 
-
+    save(){
+        console.log("Your data is saved ");
+    }
 }

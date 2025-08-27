@@ -1,5 +1,6 @@
 const path = require('path') ;
 const userData = require('../models/userDatabase') ;
+const hospitalData = require('../models/hospitalDatabase');
 
 
 // get and post request for the user login
@@ -7,10 +8,9 @@ exports.userlogin = (req,res,next)=>{
     res.sendFile(path.join(__dirname,'../','views','login.html'));
 }
 exports.postuserlogin = (req,res,next) => {
+    const {email,password} = req.body;
+    // console.log(email,password);
     console.log(req.body) ;
-    const e_mail = req.body.email ;
-    const pass = req.body.password ;
-    console.log(e_mail,pass);
 
     //as of now.....
     res.redirect('/home');
@@ -34,13 +34,30 @@ exports.postusersignup = (req,res,next) => {
 
 // get and post request for hospital login 
 exports.hospitallogin = (req,res,next)=>{
-    res.sendFile(path.join(__dirname,'../','views','login.html'));
+    res.sendFile(path.join(__dirname,'../','views','hospital-login.html'));
+}
+exports.posthospitallogin = (req,res,next) => {
+    const {email,password} = req.body ;
+    // console.log(email,password);
+    console.log(req.body) ;
+
+    res.redirect('/home');
 }
 
 
 // get and post request for hospital signup
 exports.hospitalregister = (req,res,next)=>{
-    res.sendFile(path.join(__dirname,'../','views','signup.html'));
+    res.sendFile(path.join(__dirname,'../','views','hospital-signup.html'));
+}
+exports.posthospitalsignup = (req,res,next) => {
+
+    const {name,email,password,phone_no,location} = req.body ;
+    
+    const data = new hospitalData(name,email,password,phone_no,location) ;
+    data.save();
+
+    console.log(req.body);
+    res.redirect('/home');
 }
 
 

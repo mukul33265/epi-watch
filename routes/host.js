@@ -17,8 +17,11 @@ hostRouter.get('/user-register',hostController.usersignup);
 
 hostRouter.post('/user-register',hostController.postusersignup);
 
-hostRouter.get('/hospital-login',hostController.addsoon);
+hostRouter.get('/hospital-login',hostController.hospitallogin);
+hostRouter.post('/hospital-login',hostController.posthospitallogin);
 
-hostRouter.get('/hospital-register',hostController.addsoon);
+hostRouter.get('/hospital-register',hostController.hospitalregister);
+hostRouter.post('/hospital-register',hostController.posthospitalsignup);
+
 
 module.exports = hostRouter ;
