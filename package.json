@@ -4,11 +4,10 @@
   "description": "disease survillance via SMS and alert ",
   "main": "app.js",
   "scripts": {
-  "start:server": "node app.js",
-  "build:css": "tailwindcss -i ./views/input.css -o ./views/output.css --watch",
-  "dev": "start cmd /k \"npx tailwindcss -i ./views/input.css -o ./views/output.css --watch\" && nodemon app.js"
-}
-,
+    "start:server": "node app.js",
+    "build:css": "tailwindcss -i ./views/input.css -o ./views/output.css --watch",
+    "dev": "start cmd /k \"npx tailwindcss -i ./views/input.css -o ./views/output.css --watch\" && nodemon app.js"
+  },
   "repository": {
     "type": "git",
     "url": "epi-watch"
@@ -17,7 +16,14 @@
   "license": "ISC",
   "dependencies": {
     "@tailwindcss/cli": "^4.1.12",
+    "bcrypt": "^6.0.0",
+    "connect-mongodb-session": "^5.0.0",
+    "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "express-validator": "^7.2.1",
+    "mongoose": "^8.18.0",
+    "sessions": "^0.0.2-7",
     "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
