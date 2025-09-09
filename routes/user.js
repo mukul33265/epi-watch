@@ -12,7 +12,7 @@ userRouter.get('/terms',usercontroller.addsoon);
 
 userRouter.get('/learn-more',usercontroller.addsoon);
 
-userRouter.get('/user-dashboard',usercontroller.addsoon);
+userRouter.get('/user-dashboard',usercontroller.getuserdashboard);
 
 userRouter.get('/change-password',usercontroller.addsoon);
 
