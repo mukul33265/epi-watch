@@ -19,10 +19,6 @@ app.use(express.static(path.join(__dirname, "views")));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views')); 
 
-app.use(userRouter);
-app.use(hostRouter);
-app.use(authRouter);
-
 // const PATHS 
 const PORT = 3000;
 const DB_PATH = "mongodb+srv://mukulkumar7707:mukul%40abc@mukul.sshtzha.mongodb.net/healthcareDB?retryWrites=true&w=majority&appName=mukul";
@@ -38,6 +34,10 @@ app.use(session({
   saveUninitialized : true ,
   store 
 }));
+
+app.use(userRouter);
+app.use(hostRouter);
+app.use(authRouter);
 
 
 // connection to the server and database

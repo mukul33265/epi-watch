@@ -10,12 +10,7 @@ const { error } = require('console');
 // -------------------------------------------- //
 
 // get and post request for the (user login)
-exports.userlogin = (req,res,next)=>{
-    res.render('login' , {
-        errors : [],
-        oldInput : {email : "" , password : ""}
-    })
-}
+
 exports.postuserlogin = async (req,res,next) => {
     const {email,password} = req.body;
     const user = await User.findOne({email});
@@ -35,11 +30,36 @@ exports.postuserlogin = async (req,res,next) => {
             oldInput : {email,password}
         })
     }
+    
+    req.session.isLoggedIn = true ;
+    req.session.user = user ;
+    await req.session.save() ;
+
     // as of now 
-    res.redirect('/');
+    res.render('new',{
+        user : user
+    });
 }
 
+exports.userlogin = (req,res,next)=>{
 
+        if(req.session.isLoggedIn === true ){
+            return res.render('new',{
+                user : req.session.user 
+            });
+        }
+        res.render('login' , {
+            errors : [],
+            oldInput : {email : "" , password : ""}
+        })
+    
+}
+
+exports.postuserlogout = (req,res,next) => {
+    req.session.destroy(()=>{
+        res.redirect('/');
+    })
+}
 
 // ----------------------------------------------  // 
 
@@ -48,7 +68,7 @@ exports.postuserlogin = async (req,res,next) => {
 exports.usersignup = (req,res,next) => {
     res.render('signup',{
         errors : [] ,
-        oldInput : {email : "" , password : "" , userName : "" , name : "" , age : "" , location : "" ,phone_no : ""}
+        oldInput : {email : "" , password : "" , userName : "" , name : "" , age : "" , location : "" ,phoneNo : ""}
     })
 }
 exports.postusersignup = [
@@ -71,7 +91,7 @@ exports.postusersignup = [
         .withMessage("Password should contain atleast one special character")
         .trim(),
 
-    check("phone_no")
+    check("phoneNo")
       .isMobilePhone()
       .withMessage("Please enter a valid phone number"),
 
@@ -103,18 +123,18 @@ exports.postusersignup = [
     
     (req,res,next) => {
         console.log(req.body) ;
-        const {email,password,phone_no,userName,age,location,name} = req.body ;
+        const {email,password,phoneNo,userName,age,location,name} = req.body ;
         const errors = validationResult(req);
         if(!errors.isEmpty()){
             return res.status(422).render('signup',{
                 errors : errors.array().map(err => err.msg),
-                oldInput : {email,password,phone_no,userName,age,location,name}
+                oldInput : {email,password,phoneNo,userName,age,location,name}
             }) 
         }
 
         bcrypt.hash(password,12)
         .then(hashedPassword => {
-            const user = new User({email,password : hashedPassword,userName,name,age,location,phone_no});
+            const user = new User({email,password : hashedPassword,userName,name,age,location,phoneNo});
             user.save() ;
         })
         .then(() => {
@@ -123,7 +143,7 @@ exports.postusersignup = [
         .catch(err => {
             return res.status(422).render('signup',{
                 errors : [err.message],
-                oldInput : {email,password,phone_no,userName,age,location,name}
+                oldInput : {email,password,phoneNo,userName,age,location,name}
             })
         })
     }
@@ -135,6 +155,11 @@ exports.postusersignup = [
 
 // get and post request for (hospital login )
 exports.hospitallogin = (req,res,next)=>{
+    if(req.session.isHospitalLoggedIn === true) {
+        return res.render('new', {
+            hospital: req.session.hospital
+        });
+    }
     res.render('hospital-login' , {
         errors : [],
         oldInput : {email : "" , password : ""}
@@ -158,8 +183,14 @@ exports.posthospitallogin = async (req,res,next) => {
             oldInput : {email,password}
         })
     }
-    // as of now 
-    res.redirect('/');
+
+    req.session.isHospitalLoggedIn = true;
+    req.session.hospital = hosp;
+    await req.session.save();
+
+    res.render('new', {
+        hospital: hosp
+    });
 }
 
 
@@ -170,9 +201,16 @@ exports.posthospitallogin = async (req,res,next) => {
 exports.hospitalregister = (req,res,next)=>{
     res.render('hospital-signup',{
         errors : [],
-        oldInput : {name : "" , email : "" , password : "" , phone_no : "" , location : ""}
+        oldInput : {name : "" , email : "" , password : "" , phoneNo : "" , location : ""}
     })
 }
+
+// Hospital logout
+exports.posthospitallogout = (req,res,next) => {
+    req.session.destroy(() => {
+        res.redirect('/');
+    });
+};
 
 exports.posthospitalsignup = [
     
@@ -200,7 +238,7 @@ exports.posthospitalsignup = [
         .withMessage("Password should contain atleast one special character")
         .trim(),
 
-    check("phone_no")
+    check("phoneNo")
       .isMobilePhone()
       .withMessage("Please enter a valid phone number"),
 
@@ -212,20 +250,20 @@ exports.posthospitalsignup = [
       .withMessage("Location must be at least 3 characters long"),
 
     (req,res,next) => {
-        const {name,email,password,phone_no,location} = req.body ;
+        const {name,email,password,phoneNo,location} = req.body ;
         console.log(req.body);
         const errors = validationResult(req) ;
         if(!errors.isEmpty()){
             res.status(422).render('hospital-signup',{
                 errors : errors.array().map(err => err.msg),
                 
-                oldInput : {name,email,password,phone_no,location}
+                oldInput : {name,email,password,phoneNo,location}
             })
         }
 
         bcrypt.hash(password,12)
         .then(hashedPassword => {
-            const hospitalData = new hospital({name,email,password : hashedPassword,phone_no,location})
+            const hospitalData = new hospital({name,email,password : hashedPassword,phoneNo,location})
             return hospitalData.save() ;
         })
         .then(()=>{
@@ -234,7 +272,7 @@ exports.posthospitalsignup = [
         .catch(err => {
             return res.status(422).render('hospital-signup',{
                 errors : [err.message],
-                oldInput : { name, email, password, phone_no, location }
+                oldInput : { name, email, password, phoneNo, location }
 
             })
         })

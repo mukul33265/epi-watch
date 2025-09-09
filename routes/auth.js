@@ -10,6 +10,7 @@ authRouter.use(express.json()) ;
 
 authRouter.get('/user-login',authController.userlogin);
 authRouter.post('/user-login',authController.postuserlogin) ;
+authRouter.post('/user-logout',authController.postuserlogout);
 
 authRouter.get('/user-register',authController.usersignup);
 authRouter.post('/user-register',authController.postusersignup);
@@ -19,6 +20,7 @@ authRouter.post('/hospital-login',authController.posthospitallogin);
 
 authRouter.get('/hospital-register',authController.hospitalregister);
 authRouter.post('/hospital-register',authController.posthospitalsignup);
+authRouter.post('/hospital-logout',authController.posthospitallogout);
 
 
 
