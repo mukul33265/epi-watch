@@ -35,8 +35,7 @@ exports.postuserlogin = async (req,res,next) => {
     req.session.user = user ;
     await req.session.save() ;
 
-    // as of now 
-    res.render('new',{
+    res.render('userDash',{
         user : user
     });
 }
@@ -44,7 +43,7 @@ exports.postuserlogin = async (req,res,next) => {
 exports.userlogin = (req,res,next)=>{
 
         if(req.session.isLoggedIn === true ){
-            return res.render('new',{
+            return res.render('userDash',{
                 user : req.session.user 
             });
         }
@@ -156,7 +155,7 @@ exports.postusersignup = [
 // get and post request for (hospital login )
 exports.hospitallogin = (req,res,next)=>{
     if(req.session.isHospitalLoggedIn === true) {
-        return res.render('new', {
+        return res.render('hospitalDash', {
             hospital: req.session.hospital
         });
     }
@@ -188,7 +187,7 @@ exports.posthospitallogin = async (req,res,next) => {
     req.session.hospital = hosp;
     await req.session.save();
 
-    res.render('new', {
+    res.render('hospitalDash', {
         hospital: hosp
     });
 }

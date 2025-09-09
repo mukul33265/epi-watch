@@ -50,13 +50,35 @@
                 </div>
                 
                 <!-- Navigation Links -->
-                <div class="hidden md:flex items-center space-x-1">
-                    <a href="" class="px-6 py-3 text-gray-700 hover:text-red-500 font-medium transition-colors duration-200 rounded-lg hover:bg-red-50">Home</a>
-                    <a href="/user-dashboard" class="px-6 py-3 text-gray-700 hover:text-red-500 font-medium transition-colors duration-200 rounded-lg hover:bg-red-50">Dashboard</a>
-                    <a href="/how-it-works" class="px-6 py-3 text-gray-700 hover:text-red-500 font-medium transition-colors duration-200 rounded-lg hover:bg-red-50">How it Works</a>
-                    <a href="/about" class="px-6 py-3 text-gray-700 hover:text-red-500 font-medium transition-colors duration-200 rounded-lg hover:bg-red-50">About</a>
-                    <a href="user-login" class="bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transition-all duration-200 shadow-lg hover:shadow-xl ml-4">Sign In</a>
-                </div>
+                        <nav class="bg-white  px-4 py-3 flex items-center justify-between relative">
+                        <!-- Desktop Menu -->
+                        <div class="hidden md:flex items-center space-x-1">
+                            <a href="/" class="px-6 py-3 text-gray-700 hover:text-red-500 font-medium transition-colors duration-200 rounded-lg hover:bg-red-50">Home</a>
+                            <a href="/user-dashboard" class="px-6 py-3 text-gray-700 hover:text-red-500 font-medium transition-colors duration-200 rounded-lg hover:bg-red-50">Dashboard</a>
+                            <a href="/how-it-works" class="px-6 py-3 text-gray-700 hover:text-red-500 font-medium transition-colors duration-200 rounded-lg hover:bg-red-50">How it Works</a>
+                            <a href="/about" class="px-6 py-3 text-gray-700 hover:text-red-500 font-medium transition-colors duration-200 rounded-lg hover:bg-red-50">About</a>
+                            <a href="user-login" class="bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transition-all duration-200 shadow-lg hover:shadow-xl ml-4">Sign In</a>
+                        </div>
+
+                        <!-- Mobile Hamburger -->
+                        <div class="md:hidden">
+                            <button id="menu-btn" class="text-gray-700 focus:outline-none">
+                            <!-- Icon -->
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                            </button>
+                        </div>
+                        </nav>
+
+                        <!-- Mobile Menu -->
+                        <div id="menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-md flex flex-col space-y-2 px-4 py-4">
+                        <a href="/" class="block px-4 py-2 text-gray-700 hover:text-red-500 hover:bg-red-50 rounded-lg">Home</a>
+                        <a href="/user-dashboard" class="block px-4 py-2 text-gray-700 hover:text-red-500 hover:bg-red-50 rounded-lg">Dashboard</a>
+                        <a href="/how-it-works" class="block px-4 py-2 text-gray-700 hover:text-red-500 hover:bg-red-50 rounded-lg">How it Works</a>
+                        <a href="/about" class="block px-4 py-2 text-gray-700 hover:text-red-500 hover:bg-red-50 rounded-lg">About</a>
+                        <a href="user-login" class="block bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transition-all duration-200 shadow-md">Sign In</a>
+                        </div>
             </div>
         </div>
     </nav>
@@ -199,5 +221,13 @@
         </div>
     </div>
 
+    <script>
+  const menuBtn = document.getElementById('menu-btn');
+  const menu = document.getElementById('menu');
+
+  menuBtn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
 </body>
 </html>
