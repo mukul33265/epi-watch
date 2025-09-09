@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>own data</title>
+  <meta charset="UTF-8">
+  <title>User Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+  <div class="max-w-md w-full bg-white shadow-lg rounded-2xl p-6">
+    <h1 class="text-2xl font-bold text-center mb-4">User Profile</h1>
+
+    <div class="space-y-3">
+      
+      <div>
+        <!-- <span class="font-semibold text-gray-700">Username:</span> -->
+        <h1 class="text-gray-600">Welcome back  <%=  user.userName %></h1>
+      </div>
+
+      <div>
+        <span class="font-semibold text-gray-700">Age:</span>
+        <p class="text-gray-600"><%= user.age %></p>
+      </div>
+
+      <div>
+        <span class="font-semibold text-gray-700">Location:</span>
+        <p class="text-gray-600"><%= user.location %></p>
+      </div>
+    </div>
+
+    <!-- 🔹 Logout Link -->
+      <div class="mt-6 text-center">
+        <form action="/user-logout" method="POST">
+           <button type="submit" 
+            class="inline-block bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg shadow">
+              Logout
+          </button>
+        </form>
+      </div>
+
 </body>
 </html>
