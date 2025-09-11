@@ -27,7 +27,7 @@ jobs:
       run: npm i
 
     - name: "Build Command"
-      run: nppm run build
+      run: npm run build
 
 
 
@@ -51,4 +51,4 @@ jobs:
       run: npm i
 
     - name: "Running testcases"
-      run: nppm run test
+      run: npm run test
