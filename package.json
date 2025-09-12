@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "disease survillance via SMS and alert ",
   "main": "app.js",
-  "scripts": {
-    "start:server": "node app.js",
-    "build:css": "tailwindcss -i ./views/input.css -o ./views/output.css --watch",
-    "dev": "start cmd /k \"npx tailwindcss -i ./views/input.css -o ./views/output.css --watch\" && nodemon app.js"
-  },
+"scripts": {
+  "start": "node app.js",
+  "dev": "start cmd /k \"npx tailwindcss -i ./views/input.css -o ./views/output.css --watch\" && nodemon app.js",
+  "build": "tailwindcss -i ./views/input.css -o ./views/output.css",
+  "test": "echo \"No tests yet\" && exit 0"
+},
+
   "repository": {
     "type": "git",
     "url": "epi-watch"
@@ -29,5 +31,7 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
-  }
+  },
+  "keywords": [],
+  "type": "commonjs"
 }
