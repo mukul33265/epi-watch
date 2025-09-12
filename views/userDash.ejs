@@ -76,7 +76,11 @@
           <span class="text-2xl font-bold text-gray-800">12</span>
           <span class="text-sm text-gray-600 ml-1">within 5km</span> -->
         <!-- </div> -->
-        <a href="/user-logout" class="bg-red-500 text-white w-full h-full rounded-2xl flex items-center justify-center">LogOut</a>
+        <form action="user-logout" method="POST" class="w-full h-full">
+          <button type="submit" class="bg-red-500 text-white w-full h-full rounded-2xl flex items-center justify-center hover:bg-red-600 transition-colors">
+            LogOut
+          </button>
+        </form>
       </div>
     </div>
     <div class="col-span-2 row-span-8 col-start-2 row-start-2 rounded-3xl bg-white shadow-lg overflow-hidden">
