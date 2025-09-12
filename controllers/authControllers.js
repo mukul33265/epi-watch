@@ -36,7 +36,7 @@ exports.postuserlogin = async (req,res,next) => {
     await req.session.save() ;
 
     res.render('userDash',{
-        user : user
+        user : req.session.user ,
     });
 }
 
