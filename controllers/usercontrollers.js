@@ -19,7 +19,7 @@ exports.getuserdashboard = async (req, res, next) => {
         });
     }
     const userCity = req.session.user.location ;
-    const diseaseData = await Disease.find({ City: new RegExp('^' + userCity + '$', 'i') });
+    const diseaseData = await Disease.find({ City: new RegExp('^' + userCity + '$', 'i') }).sort({ Cases: -1 });
     console.log(diseaseData) ;
     res.render('userDash', {
         user: req.session.user ,

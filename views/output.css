@@ -320,9 +320,6 @@
       max-width: 96rem;
     }
   }
-  .mx-4 {
-    margin-inline: calc(var(--spacing) * 4);
-  }
   .mx-auto {
     margin-inline: auto;
   }
@@ -398,17 +395,11 @@
   .hidden {
     display: none;
   }
-  .inline {
-    display: inline;
-  }
   .inline-block {
     display: inline-block;
   }
   .inline-flex {
     display: inline-flex;
-  }
-  .table {
-    display: table;
   }
   .h-4 {
     height: calc(var(--spacing) * 4);
@@ -500,23 +491,14 @@
   .flex-1 {
     flex: 1;
   }
-  .flex-shrink {
-    flex-shrink: 1;
-  }
   .flex-shrink-0 {
     flex-shrink: 0;
-  }
-  .border-collapse {
-    border-collapse: collapse;
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .cursor-pointer {
     cursor: pointer;
-  }
-  .resize {
-    resize: both;
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -667,6 +649,9 @@
   .border-red-400 {
     border-color: var(--color-red-400);
   }
+  .border-red-500 {
+    border-color: var(--color-red-500);
+  }
   .border-transparent {
     border-color: transparent;
   }
@@ -714,38 +699,8 @@
     --tw-gradient-position: to right in oklab;
     background-image: linear-gradient(var(--tw-gradient-stops));
   }
-  .bg-\[url\(\'\'\)\] {
-    background-image: url('');
-  }
-  .bg-\[url\(\'https\:\/\/c4\.wallpaperflare\.com\/wallpaper\/592\/268\/55\/circle-wallpaper-preview\.jpg\'\)\] {
-    background-image: url('https://c4.wallpaperflare.com/wallpaper/592/268/55/circle-wallpaper-preview.jpg');
-  }
-  .bg-\[url\(\'https\:\/\/i\.pinimg\.com\/736x\/41\/3e\/2b\/413e2b479f7ab5a0a6d931f6a33f6e69\.jpg\'\)\] {
-    background-image: url('https://i.pinimg.com/736x/41/3e/2b/413e2b479f7ab5a0a6d931f6a33f6e69.jpg');
-  }
-  .bg-\[url\(\'https\:\/\/img\.freepik\.com\/premium-photo\/abstract-healthcare-background-with-hexagons-watercolor_813661-10363\.jpg\'\)\] {
-    background-image: url('https://img.freepik.com/premium-photo/abstract-healthcare-background-with-hexagons-watercolor_813661-10363.jpg');
-  }
   .bg-\[url\(\'https\:\/\/img\.freepik\.com\/premium-photo\/concept-health-red-medicine-hospital-background-care-stethoscope_1022026-53143\.jpg\'\)\] {
     background-image: url('https://img.freepik.com/premium-photo/concept-health-red-medicine-hospital-background-care-stethoscope_1022026-53143.jpg');
-  }
-  .bg-\[url\(\'https\:\/\/png\.pngtree\.com\/background\/20250419\/original\/pngtree-healthcare-background-featuring-a-blue-gradient-with-heartbeat-ecg-line-picture-image_16423508\.jpg\'\)\] {
-    background-image: url('https://png.pngtree.com/background/20250419/original/pngtree-healthcare-background-featuring-a-blue-gradient-with-heartbeat-ecg-line-picture-image_16423508.jpg');
-  }
-  .bg-\[url\(\'https\:\/\/png\.pngtree\.com\/thumb_back\/fh260\/background\/20250415\/pngtree-web-banner-with-white-and-light-blue-gradient-molecular-design-for-image_17184643\.jpg\'\)\] {
-    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20250415/pngtree-web-banner-with-white-and-light-blue-gradient-molecular-design-for-image_17184643.jpg');
-  }
-  .bg-\[url\(\'https\:\/\/static\.vecteezy\.com\/system\/resources\/thumbnails\/036\/709\/129\/small\/medical-cross-and-plus-background-abstract-seamless-red-border-for-hospital-healthcare-and-pharmacy-geometrical-shapes-ornament-wallpaper-vector\.jpg\'\)\] {
-    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/036/709/129/small/medical-cross-and-plus-background-abstract-seamless-red-border-for-hospital-healthcare-and-pharmacy-geometrical-shapes-ornament-wallpaper-vector.jpg');
-  }
-  .bg-\[url\(\'https\:\/\/t4\.ftcdn\.net\/jpg\/02\/31\/86\/55\/360_F_231865514_jgBQp5vgSIOmnqVZWEyQ5Ekquml7PYIz\.jpg\'\)\] {
-    background-image: url('https://t4.ftcdn.net/jpg/02/31/86/55/360_F_231865514_jgBQp5vgSIOmnqVZWEyQ5Ekquml7PYIz.jpg');
-  }
-  .bg-\[url\(\'https\:\/\/thumbs\.dreamstime\.com\/b\/medical-heart-healthcare-background-technology-science-red-ecg-159436351\.jpg\'\)\] {
-    background-image: url('https://thumbs.dreamstime.com/b/medical-heart-healthcare-background-technology-science-red-ecg-159436351.jpg');
-  }
-  .bg-\[url\(\'re-background-with-hexagons-watercolor_813661-10363\.jpg\'\)\] {
-    background-image: url('re-background-with-hexagons-watercolor_813661-10363.jpg');
   }
   .from-green-500 {
     --tw-gradient-from: var(--color-green-500);
@@ -1002,9 +957,6 @@
   .uppercase {
     text-transform: uppercase;
   }
-  .underline {
-    text-decoration-line: underline;
-  }
   .placeholder-gray-500 {
     &::placeholder {
       color: var(--color-gray-500);
@@ -1033,16 +985,8 @@
     --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
-  }
   .backdrop-blur-sm {
     --tw-backdrop-blur: blur(var(--blur-sm));
-    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-  }
-  .backdrop-filter {
     -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
     backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
   }
@@ -1435,11 +1379,6 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-backdrop-blur {
   syntax: "*";
   inherits: false;
@@ -1532,7 +1471,6 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
-      --tw-outline-style: solid;
       --tw-backdrop-blur: initial;
       --tw-backdrop-brightness: initial;
       --tw-backdrop-contrast: initial;

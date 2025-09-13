@@ -34,7 +34,7 @@ exports.postuserlogin = async (req,res,next) => {
         }
         const userCity = user.location;
         // Using a case-insensitive regex for the City query (notice the capital 'C')
-        const diseaseData = await Disease.find({ City: new RegExp('^' + userCity + '$', 'i') });
+        const diseaseData = await Disease.find({ City: new RegExp('^' + userCity + '$', 'i') }).sort({ Cases: -1 });
 
         req.session.isLoggedIn = true;
         req.session.user = user ;
@@ -56,7 +56,7 @@ exports.userlogin = async (req,res,next)=>{
     if(req.session.isLoggedIn === true && req.session.user){
         try {
             const userCity = req.session.user.location;
-            const diseaseData = await Disease.find({ City: new RegExp('^' + userCity + '$', 'i') });
+            const diseaseData = await Disease.find({ City: new RegExp('^' + userCity + '$', 'i') }).sort({ Cases: -1 });
             return res.render('userDash',{
                 user : req.session.user,
                 data : diseaseData
