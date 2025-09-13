@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "description": "disease survillance via SMS and alert ",
   "main": "app.js",
-"scripts": {
-  "start": "node app.js",
-  "dev": "start cmd /k \"npx tailwindcss -i ./views/input.css -o ./views/output.css --watch\" && nodemon app.js",
-  "build": "tailwindcss -i ./views/input.css -o ./views/output.css",
-  "test": "echo \"No tests yet\" && exit 0"
-},
-
+  "scripts": {
+    "start": "node app.js",
+    "dev": "start cmd /k \"npx tailwindcss -i ./views/input.css -o ./views/output.css --watch\" && nodemon app.js",
+    "build": "tailwindcss -i ./views/input.css -o ./views/output.css",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
   "repository": {
     "type": "git",
     "url": "epi-watch"
@@ -20,6 +19,7 @@
     "@tailwindcss/cli": "^4.1.12",
     "bcrypt": "^6.0.0",
     "connect-mongodb-session": "^5.0.0",
+    "csv-parser": "^3.2.0",
     "dotenv": "^17.2.2",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
@@ -27,7 +27,8 @@
     "express-validator": "^7.2.1",
     "mongoose": "^8.18.0",
     "sessions": "^0.0.2-7",
-    "tailwindcss": "^4.1.12"
+    "tailwindcss": "^4.1.12",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"

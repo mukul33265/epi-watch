@@ -6,52 +6,73 @@ const bcrypt = require("bcrypt");
 const User = require('../models/userDatabase') ;
 const hospital = require('../models/hospitalDatabase');
 const { error } = require('console');
+const Disease = require('../models/diseaseDatabase'); 
 
 // -------------------------------------------- //
 
 // get and post request for the (user login)
 
 exports.postuserlogin = async (req,res,next) => {
-    const {email,password} = req.body;
-    const user = await User.findOne({email});
-    console.log(user);
-    if(!user) {
-        return res.status(422).render('login',{
-            errors : ["User not found"],
-            oldInput : {email,password}
-        })
-    }
-
-    const isMatch = await bcrypt.compare(password,user.password);
-
-    if(!isMatch) {
-        return res.status(422).render('login',{
-            errors : ["Invalid Password"],
-            oldInput : {email,password}
-        })
-    }
-    
-    req.session.isLoggedIn = true ;
-    req.session.user = user ;
-    await req.session.save() ;
-
-    res.render('userDash',{
-        user : req.session.user ,
-    });
-}
-
-exports.userlogin = (req,res,next)=>{
-
-        if(req.session.isLoggedIn === true ){
-            return res.render('userDash',{
-                user : req.session.user 
+    try {
+        const {email,password} = req.body;
+        const user = await User.findOne({email});
+        console.log(user);
+        if(!user) {
+            return res.status(422).render('login',{
+                errors : ["User not found"],
+                oldInput : {email,password}
             });
         }
-        res.render('login' , {
-            errors : [],
-            oldInput : {email : "" , password : ""}
-        })
-    
+
+        const isMatch = await bcrypt.compare(password,user.password);
+
+        if(!isMatch) {
+            return res.status(422).render('login',{
+                errors : ["Invalid Password"],
+                oldInput : {email,password}
+            });
+        }
+        const userCity = user.location;
+        // Using a case-insensitive regex for the City query (notice the capital 'C')
+        const diseaseData = await Disease.find({ City: new RegExp('^' + userCity + '$', 'i') });
+
+        req.session.isLoggedIn = true;
+        req.session.user = user ;
+        await req.session.save() ;
+        console.log(diseaseData) ;
+        return res.render('userDash',{
+            user : req.session.user ,
+            data : diseaseData ,
+        });
+    } catch (err) {
+        console.error("Login error:", err);
+        return res.status(500).render('login', {
+            errors: ["An error occurred. Please try again."],
+            oldInput: {email, password}
+        });
+    }
+}
+exports.userlogin = async (req,res,next)=>{
+    if(req.session.isLoggedIn === true && req.session.user){
+        try {
+            const userCity = req.session.user.location;
+            const diseaseData = await Disease.find({ City: new RegExp('^' + userCity + '$', 'i') });
+            return res.render('userDash',{
+                user : req.session.user,
+                data : diseaseData
+            });
+        } catch (err) {
+            // Handle potential errors during database query
+            console.error("Error fetching disease data:", err);
+            // You might want to render an error page or redirect
+            return next(err); 
+        }
+    }
+    // If not logged in, render the login page
+    res.render('login' , {
+        errors : [],
+        oldInput : {email : "" , password : ""}
+    });
 }
 
 exports.postuserlogout = (req,res,next) => {
@@ -165,31 +186,39 @@ exports.hospitallogin = (req,res,next)=>{
     })
 }
 exports.posthospitallogin = async (req,res,next) => {
-    const {email,password} = req.body ;
-    const hosp = await hospital.findOne({email});
-    if(!hosp) {
-        return res.status(422).render('hospital-login',{
-            errors : ["User not found"],
-            oldInput : {email,password}
-        })
+    try {
+        const {email,password} = req.body;
+        const hosp = await hospital.findOne({email});
+        if(!hosp) {
+            return res.status(422).render('hospital-login',{
+                errors : ["User not found"],
+                oldInput : {email,password}
+            });
+        }
+
+        const isMatch = await bcrypt.compare(password,hosp.password);
+
+        if(!isMatch) {
+            return res.status(422).render('hospital-login',{
+                errors : ["Invalid Password"],
+                oldInput : {email,password}
+            });
+        }
+
+        req.session.isHospitalLoggedIn = true;
+        req.session.hospital = hosp;
+        await req.session.save();
+
+        res.render('hospitalDash', {
+            hospital: hosp
+        });
+    } catch (err) {
+        console.error('Hospital login error:', err);
+        return res.status(500).render('hospital-login', {
+            errors: ["An error occurred. Please try again."],
+            oldInput: {email, password}
+        });
     }
-
-    const isMatch = await bcrypt.compare(password,hosp.password);
-
-    if(!isMatch) {
-        return res.status(422).render('hospital-login',{
-            errors : ["Invalid Password"],
-            oldInput : {email,password}
-        })
-    }
-
-    req.session.isHospitalLoggedIn = true;
-    req.session.hospital = hosp;
-    await req.session.save();
-
-    res.render('hospitalDash', {
-        hospital: hosp
-    });
 }
 
 
@@ -278,3 +307,4 @@ exports.posthospitalsignup = [
     }
 
 ]
+
