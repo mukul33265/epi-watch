@@ -20,4 +20,8 @@ userRouter.get('/how-it-works',usercontroller.addsoon);
 
 userRouter.get('/login-google',usercontroller.addsoon);
 
+userRouter.get('/disease-precautions',usercontroller.showprecautions) ;
+
+// userRouter.get('/disease-symptoms',usercontroller.showsymptoms) ;
+
 module.exports = userRouter ;

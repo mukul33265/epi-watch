@@ -16,7 +16,6 @@ exports.postuserlogin = async (req,res,next) => {
     try {
         const {email,password} = req.body;
         const user = await User.findOne({email});
-        console.log(user);
         if(!user) {
             return res.status(422).render('login',{
                 errors : ["User not found"],
@@ -39,7 +38,7 @@ exports.postuserlogin = async (req,res,next) => {
         req.session.isLoggedIn = true;
         req.session.user = user ;
         await req.session.save() ;
-        console.log(diseaseData) ;
+        // console.log(diseaseData) ;
         return res.render('userDash',{
             user : req.session.user ,
             data : diseaseData ,
@@ -142,7 +141,6 @@ exports.postusersignup = [
 
     
     (req,res,next) => {
-        console.log(req.body) ;
         const {email,password,phoneNo,userName,age,location,name} = req.body ;
         const errors = validationResult(req);
         if(!errors.isEmpty()){
@@ -279,7 +277,6 @@ exports.posthospitalsignup = [
 
     (req,res,next) => {
         const {name,email,password,phoneNo,location} = req.body ;
-        console.log(req.body);
         const errors = validationResult(req) ;
         if(!errors.isEmpty()){
             res.status(422).render('hospital-signup',{
